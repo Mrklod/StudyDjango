@@ -11,6 +11,7 @@ class Student(models.Model):
     study_week = models.PositiveIntegerField(default=0)
     hour_study_week = models.PositiveIntegerField(default=0)
     count_subject = models.PositiveIntegerField(default=0)
+    pay_for_study = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -33,3 +34,4 @@ class Subject(models.Model):
 
     def __str__(self):
         return self.name
+

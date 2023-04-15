@@ -2,31 +2,24 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Списки групп и студентов</title>
+    {% block style %}
+    {% endblock style %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  </head>
-  <body>
-    <header>
-      <h1>Университет для преподавателей</h1>
-      <nav>
+</head>
+<body>
+<header>
+    <h1>Университет для преподавателей</h1>
+    <nav>
         <ul>
-          <li><a href="#">Главная</a></li>
-          <li><a href="#">Списки групп</a></li>
-          <li><a href="#">Списки студентов</a></li>
-          <li><a href="#">Регистрация</a></li>
-          <li><a href="#">Авторизация</a></li>
+            <li><a href="{% url 'main' %}">Главная</a></li>
+            <li><a href="{% url 'list' %}">Списки групп</a></li>
+            <li><a href="#">Списки студентов</a></li>
         </ul>
-      </nav>
-    </header>
-    <main>
-      <h2>Списки групп</h2>
-      <ul>
-        <li><a href="#">Группа 1</a></li>
-        <li><a href="#">Группа 2</a></li>
-        <li><a href="#">Группа 3</a></li>
-        <li><a href="#">Группа 4</a></li>
-      </ul>
-    </main>
-  </body>
+    </nav>
+</header>
+{% block content %}
+{% endblock content %}
+</body>
 </html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/liststyle.css' %}">
+{% endblock style %}
+
+{% block content %}
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Имя</th>
+      <th>Группа</th>
+      <th>Неделя обучения</th>
+      <th>Часы в неделю</th>
+      <th>Количество предметов</th>
+      <th>Оплата за обучение</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in student %}
+      <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.group }}</td>
+        <td>{{ i.study_week }}</td>
+        <td>{{ i.hour_study_week }}</td>
+        <td>{{ i.count_subject }}</td>
+        <td>{{ i.pay_for_study }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
