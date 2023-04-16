@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/add.css' %}">
+{% endblock style %}
+
+{% block content %}
+<form action="#" method="post">
+    {% csrf_token %}
+    <h3>Додати студента</h3>
+    <label for="{{ form.name.id_for_label }}">Ім'я:</label>
+    {{ form.name }}
+    <label for="{{ form.group.id_for_label }}">Група:</label>
+    {{ form.group }}
+    <br>
+    <button type="submit">Отправить</button>
+</form>
+{% endblock content %}

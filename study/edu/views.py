@@ -1,8 +1,9 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
-from .forms import StudentForm
+from .forms import *
 class MainView(View):
     def get(self, request):
         return render(request,'main.html')
@@ -23,3 +24,33 @@ class NewStudent(View):
         form = StudentForm
         context = {'form':form}
         return render(request,'add_student.html',context=context)
+
+    def post(self,request):
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse_lazy('list'))
+
+class NewTeacher(View):
+    def get(self,request):
+        form = TeacherForm
+        context = {'form':form}
+        return render(request,'add_teacher.html',context=context)
+
+    def post(self, request):
+        form = TeacherForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse_lazy('list'))
+
+class NewGroup(View):
+    def get(self,request):
+        form = GroupForm
+        context = {'form':form}
+        return render(request,'add_group.html',context=context)
+
+    def post(self, request):
+        form = GroupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse_lazy('list'))
