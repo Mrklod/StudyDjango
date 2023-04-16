@@ -19,8 +19,6 @@
       <th>Загальна кількість предметів</th>
       <th>Кількість закритих предметів</th>
       <th>Оплата за навчання</th>
-      <th>Стипендія</th>
-      <th>Відрахування</th>
     </tr>
   </thead>
   <tbody>
@@ -36,16 +34,6 @@
         <td>{{ i.subject_need }}</td>
         <td>{{ i.count_subject }}</td>
         <td>{{ i.pay_for_study }}</td>
-        {% if i.hour_study_week >= i.hour_need|floatformat:1  %}
-          <td>+</td>
-        {% else %}
-          <td>-</td>
-        {% endif %}
-        {% if i.pay_for_study == False %}
-          <td>+</td>
-        {% else %}
-          <td>-</td>
-        {% endif %}
       </tr>
     {% endfor %}
   </tbody>

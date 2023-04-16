@@ -18,6 +18,13 @@ class ListStudentsView(View):
         context = {'student':student,'poshesh':posesh}
         return render(request,'list_students.html',context=context)
 
+class ListTeacherView(View):
+
+    def get(self, request):
+        teacher = Teacher.objects.all()
+        context = {'teacher':teacher}
+        return render(request, 'list_teacher.html',context=context)
+
 
 class NewStudent(View):
     def get(self,request):

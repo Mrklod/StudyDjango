@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/liststyle.css' %}">
+{% endblock style %}
+
+{% block content %}
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Ім'я</th>
+      <th>Група</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in teacher %}
+      <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.group }} </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock content %}
