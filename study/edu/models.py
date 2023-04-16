@@ -15,7 +15,6 @@ class Student(models.Model):
     subject_need = models.PositiveIntegerField(default=8)
     count_subject = models.PositiveIntegerField(default=0)
     pay_for_study = models.BooleanField(default=True)
-
     def __str__(self):
         return self.name
 class Teacher(models.Model):

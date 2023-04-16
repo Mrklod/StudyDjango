@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from .models import *
-
+from .forms import StudentForm
 class MainView(View):
     def get(self, request):
         return render(request,'main.html')
@@ -16,3 +16,10 @@ class ListStudentsView(View):
             posesh = (i.hour_study_week / i.hour_need) * 100
         context = {'student':student,'poshesh':posesh}
         return render(request,'list_students.html',context=context)
+
+
+class NewStudent(View):
+    def get(self,request):
+        form = StudentForm
+        context = {'form':form}
+        return render(request,'add_student.html',context=context)
