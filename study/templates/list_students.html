@@ -10,12 +10,17 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Имя</th>
-      <th>Группа</th>
-      <th>Неделя обучения</th>
-      <th>Часы в неделю</th>
-      <th>Количество предметов</th>
-      <th>Оплата за обучение</th>
+      <th>Ім'я</th>
+      <th>Група</th>
+      <th>Неділь потрібно</th>
+      <th>Неділя навчання</th>
+      <th>Потрібно годин</th>
+      <th>Години в неделю</th>
+      <th>Загальна кількість предметів</th>
+      <th>Кількість закритих предметів</th>
+      <th>Оплата за навчання</th>
+      <th>Стипендія</th>
+      <th>Відрахування</th>
     </tr>
   </thead>
   <tbody>
@@ -24,10 +29,23 @@
         <td>{{ i.id }}</td>
         <td>{{ i.name }}</td>
         <td>{{ i.group }}</td>
+        <td>{{ i.study_week_need }}</td>
         <td>{{ i.study_week }}</td>
+        <td>{{ i.hour_need }}</td>
         <td>{{ i.hour_study_week }}</td>
+        <td>{{ i.subject_need }}</td>
         <td>{{ i.count_subject }}</td>
         <td>{{ i.pay_for_study }}</td>
+        {% if i.hour_study_week >= i.hour_need|floatformat:1  %}
+          <td>+</td>
+        {% else %}
+          <td>-</td>
+        {% endif %}
+        {% if i.pay_for_study == False %}
+          <td>+</td>
+        {% else %}
+          <td>-</td>
+        {% endif %}
       </tr>
     {% endfor %}
   </tbody>

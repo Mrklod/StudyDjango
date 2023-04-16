@@ -12,5 +12,7 @@ class ListStudentsView(View):
 
     def get(self,request):
         student = Student.objects.all()
-        context = {'student':student}
+        for i in student:
+            posesh = (i.hour_study_week / i.hour_need) * 100
+        context = {'student':student,'poshesh':posesh}
         return render(request,'list_students.html',context=context)

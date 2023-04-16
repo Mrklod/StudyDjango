@@ -3,19 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Списки групп и студентов</title>
+    <title>Списки груп і студентів</title>
     {% block style %}
     {% endblock style %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
 <header>
-    <h1>Университет для преподавателей</h1>
+    <h1>Сайт для навчання</h1>
     <nav>
         <ul>
-            <li><a href="{% url 'main' %}">Главная</a></li>
-            <li><a href="{% url 'list' %}">Списки групп</a></li>
-            <li><a href="#">Списки студентов</a></li>
+            <li><a href="{% url 'main' %}">Головна</a></li>
+            <li><a href="{% url 'list' %}">Списки студентів</a></li>
+            <li><a href="#">Списки груп</a></li>
         </ul>
     </nav>
 </header>
