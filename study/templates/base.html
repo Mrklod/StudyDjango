@@ -14,18 +14,25 @@
     <nav>
         <ul>
             <li><a href="{% url 'main' %}">Головна</a></li>
-            <li><a href="{% url 'list' %}">Списки студентів</a></li>
-            <li><a href="{% url 'teacher' %}">Списки викладачів</a></li>
             {% if user.is_authenticated %}
-            <li><a href="#">{{ user.username }}</a></li>
+            <li><a href="#">{{ user.username }} </a></li>
             <li><a href="{% url 'logout' %}">Выход</a></li>
             {% else %}
             <li><a href="{% url 'register' %}">Регистрация</a></li>
             <li><a href="{% url 'login' %}">Авторизация</a></li>
+            {% if user.teacher or user.dekan %}
+            <li><a href="{% url 'list' %}">Списки студентів</a></li>
+            {% else %}
             {% endif %}
+            {% endif %}
+            {% if user.teacher %}
             <li><a href="{% url 'new_student' %}">Додати студентів</a></li>
+            {% endif %}
+            {% if user.dekan %}
+            <li><a href="{% url 'teacher' %}">Списки викладачів</a></li>
             <li><a href="{% url 'new_teacher' %}">Додати викладача</a></li>
             <li><a href="{% url 'new_group' %}">Додати групу</a></li>
+            {% endif %}
         </ul>
     </nav>
 </header>
