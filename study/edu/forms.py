@@ -32,6 +32,8 @@ class UserRegisterForm(UserCreationForm):
     email = forms.CharField(initial= "example@gmail.com",widget=forms.EmailInput())
     password1 = forms.CharField(widget=forms.PasswordInput())
     password2 = forms.CharField(widget=forms.PasswordInput())
+    teacher = forms.BooleanField()
+    dekan = forms.BooleanField()
     class Meta:
         model = User
-        fields = ('username','email','password1','password2')
+        fields = ('username','email','password1','password2','teacher','dekan')
