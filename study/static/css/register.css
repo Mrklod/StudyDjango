@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f1f1;
+}
+
+/* Создаем контейнер */
+.container {
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 40%;
+  margin: 50px auto;
+}
+
+/* Добавляем стили для формы */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+button[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Добавляем стили для заголовка */
+h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+/* Добавляем стили для ссылки на вход */
+a {
+  color: dodgerblue;
+}
+
+/* Добавляем стили для кнопки отмены */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;

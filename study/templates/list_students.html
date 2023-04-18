@@ -19,6 +19,7 @@
       <th>Загальна кількість предметів</th>
       <th>Кількість закритих предметів</th>
       <th>Оплата за навчання</th>
+      <th>Особистий кабінет</th>
     </tr>
   </thead>
   <tbody>
@@ -33,8 +34,12 @@
         <td>{{ i.hour_study_week }}</td>
         <td>{{ i.subject_need }}</td>
         <td>{{ i.count_subject }}</td>
-        <td>{{ i.pay_for_study }}</td>
-      </tr>
+        {% if i.pay_for_study == True %}
+        <td>+</td>
+        {% else %}
+        <td>-</td>
+        {% endif %}
+
     {% endfor %}
   </tbody>
 </table>
