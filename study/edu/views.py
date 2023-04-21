@@ -112,3 +112,8 @@ class LogoutView(View):
     def get(self,request):
         auth.logout(request)
         return redirect(reverse_lazy('main'))
+
+@method_decorator(login_required,name='dispatch')
+class PersonalView(View):
+    def get(self, request):
+        return render(request,'personal_page.html')

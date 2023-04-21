@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/personal.css' %}">
+{% endblock style %}
+
+{% block content %}
+<main>
+  <h2>Личный кабинет студента</h2>
+  <div class="info">
+    <label>Имя:</label>
+    <span>John Doe</span>
+  </div>
+  <div class="info">
+    <label>Група:</label>
+    <span>{{ user.group }}</span>
+  </div>
+  <div class="info">
+    <label>Тип пользователя:</label>
+    <span>Студент {{ user.username }}</span>
+  </div>
+  <a href="#" class="button">Изменить пароль</a>
+</main>
+{% endblock content %}
