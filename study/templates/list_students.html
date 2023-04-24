@@ -26,7 +26,7 @@
     {% for i in student %}
       <tr>
         <td>{{ i.id }}</td>
-        <td>{{ i.name }}</td>
+        <td><a href="{% url 'personal' i.pk %}">{{ i.name }}</a></td>
         <td>{{ i.group }}</td>
         <td>{{ i.study_week_need }}</td>
         <td>{{ i.study_week }}</td>
@@ -39,6 +39,7 @@
         {% else %}
         <td>-</td>
         {% endif %}
+        <td><a href="{% url 'personal' i.pk %}">Link</a></td>
 
     {% endfor %}
   </tbody>

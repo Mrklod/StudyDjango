@@ -7,19 +7,29 @@
 
 {% block content %}
 <main>
-  <h2>Личный кабинет студента</h2>
-  <div class="info">
-    <label>Имя:</label>
-    <span>John Doe</span>
-  </div>
-  <div class="info">
-    <label>Група:</label>
-    <span>{{ user.group }}</span>
-  </div>
-  <div class="info">
-    <label>Тип пользователя:</label>
-    <span>Студент {{ user.username }}</span>
-  </div>
-  <a href="#" class="button">Изменить пароль</a>
+    {% for i in student %}
+    <h2>Особистий кабінет студента</h2>
+    <div class="info">
+        <label>Ім'я:</label>
+        <span>{{ i.name }}</span>
+    </div>
+    <div class="info">
+        <label>Група:</label>
+        <span>{{ i.group }}</span>
+    </div>
+    <div class="info">
+        <label>Оплата:</label>
+        {% if i.pay_for_study == True %}
+        <span>+</span>
+        {% else %}
+        <span>-</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div class="info">
+        <label>Статус студента(стипендія/відрахування):</label>
+        <hr>
+        <span>{{answer}}</span>
+    </div>
 </main>
 {% endblock content %}

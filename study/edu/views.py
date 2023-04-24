@@ -104,7 +104,7 @@ class LoginView(View):
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse_lazy('main'))
         context = {'form': form}
-        return render(request, 'tusk/login.html', context=context)
+        return render(request, 'login.html', context=context)
 
 
 @method_decorator(login_required,name='dispatch')
@@ -115,5 +115,14 @@ class LogoutView(View):
 
 @method_decorator(login_required,name='dispatch')
 class PersonalView(View):
-    def get(self, request):
-        return render(request,'personal_page.html')
+    def get(self, request, pk):
+        student = Student.objects.filter(pk=pk)
+        s = Student.objects.get(pk=pk)
+        context = {'student': student}
+        if s.hour_study_week / s.hour_need *100 >= 90 and s.count_subject / s.subject_need * 100 >= 90:
+            context['answer'] = 'Стипендія'
+        elif s.hour_study_week / s.hour_need *100 <= 50 or s.subject_need - s.count_subject >=3:
+            context['answer'] = 'Відраховано'
+        else:
+            context['answer'] = 'Достатня успішність'
+        return render(request,'personal_page.html',context=context)
